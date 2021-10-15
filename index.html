@@ -1,5 +1,43 @@
 <!DOCTYPE html>
 <head>
+    <title>Список заметок </title>
 <link href="pages/index.css" rel="stylesheet"/></head>
-<body></body>
+<body>
+    <div class="page">
+        <header class="header"><h1>Заметки, списки to-do</h1></header>
+        <section class="add-a-note page__section">
+            <form name="addanote" class="form page__form">
+                <input type="text" name="addtext" placeholder="добавить текст заметки" class="form__input" minlength="3" maxlength="25"/>
+                <input type="submit" name="submitform" value="добавить" class="form__submit"/>
+            </form>
+        </section>
+        <section class="notes-list page__section">
+            <h2>Избранное</h2>
+            <p class="notes-list-stared-none">Пока нет добавленных в избранное</p>
+            <ul class="cards-list notes-list__starred">
+            </ul>
+            <h2>Все заметки</h2>
+            <ul class="cards-list notes-list__main">
+        </ul>
+        </section>
+    </div>
+    <template class="addnew-template">
+        <li class="card">
+            <div class="temporary_list">
+            <p class="card__text"></p>
+            <form class="card__form">
+                <input type="text" class="card__input-text"/>
+                <input type="submit" value="Изменить" class="card__form-submit"/>
+            </form>
+        </div>
+            <div class="card__buttons">
+                <button class="card__button card__button-edit"></button>
+                <button class="card__button card__button-star"></button>
+                <button class="card__button card__button-delete"></button>
+            </div>
+        </li>
+
+    </template>
+    <script src="scripts/script.js"></script>
+</body>
 </html>
