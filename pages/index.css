@@ -114,10 +114,13 @@
 	display: flex;
 }
 
-.notes-list-stared-none {
+.notes-list-stared {
 	display: flex;
 	color: rgba(255,255,255,.3);
 	font-size: 14px;
+}
+.notes-list-stared_none {
+	display: none;
 }
 .card__button-star_starred {
 	background-image: url(../images/star-starred.png);

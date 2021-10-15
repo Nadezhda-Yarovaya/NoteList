@@ -4,13 +4,19 @@ const submitForm = form.elements.submitform;
 const template = document.querySelector(".addnew-template").content;
 const listCards = document.querySelector(".notes-list__main");
 const listStarred = document.querySelector(".notes-list__starred");
+const starredText = document.querySelector(".notes-list-stared");
+/* delete all not necessary constants */
+
+/* на новодобавленном не хочет работать функционал 
+тут наверно про время добавления !! */
 
 const initialText = ["Купить хлеб", "Погулять", "Поиграть с собакой"];
 
-
+/* initial cards */
 initialText.forEach((el) => {
     addNewNote(el);
     });
+
 
 function addNewNote(textOfNote) {
   const newNote = template.querySelector(".card").cloneNode(true);
@@ -19,6 +25,8 @@ function addNewNote(textOfNote) {
   const textEditInForm = notesForm.querySelector(".card__input-text");
   textEditInForm.value = textOfNote;
   listCards.append(newNote); /* в конце списка */ 
+
+  
 }
 
 function deleteNote(evt) {
@@ -31,9 +39,24 @@ function editNote(evt) {
     noteToEdit.querySelector('.card__text').classList.toggle('card__text_hide');
     noteToEdit.querySelector('.card__form').classList.toggle('card__form_show');
 }
+
 function starNote(evt) {
-    const noteToEdit = evt.currentTarget.closest('.card');
-    noteToEdit.querySelector('.card__button-star').classList.toggle('card__button-star_starred');
+    const currentCard = evt.currentTarget.closest('.card');
+    currentCard.querySelector('.card__button-star').classList.toggle('card__button-star_starred');
+    const appendToStarOrNot = currentCard.querySelector('.card__button-star').classList.contains('card__button-star_starred');
+    if (appendToStarOrNot) {
+    listStarred.append(currentCard); /*auto delete from listCards*/
+    } else {
+        listCards.append(currentCard); 
+    }
+    /* check if list of stars empty*/
+    const allStarredCards = listStarred.querySelectorAll('.card');
+    if (allStarredCards.length === 0) {
+        starredText.classList.remove('notes-list-stared_none');
+    }
+    else {
+        starredText.classList.add('notes-list-stared_none');
+    }
 }
 
 function saveEditedNote(evt) {    
