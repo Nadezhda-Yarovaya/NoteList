@@ -1,3 +1,4 @@
+import {Note} from './Note.js';
 const form = document.forms.addanote;
 const inputForm = form.elements.addtext;
 const submitForm = form.elements.submitform;
@@ -18,16 +19,7 @@ initialText.forEach((el) => {
     });
 
 
-function addNewNote(textOfNote) {
-  const newNote = template.querySelector(".card").cloneNode(true);
-  newNote.querySelector('.card__text').textContent = textOfNote;
-  const notesForm = newNote.querySelector(".card__form");
-  const textEditInForm = notesForm.querySelector(".card__input-text");
-  textEditInForm.value = textOfNote;
-  listCards.append(newNote); /* в конце списка */ 
 
-  
-}
 
 function deleteNote(evt) {
 const noteToDelete = evt.currentTarget.closest('.card');
