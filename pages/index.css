@@ -29,6 +29,7 @@
 
 .card {
 	border:1px solid rgba(255,255,255,.3);
+	border-radius: 5px;
 	min-height: 60px;
 	margin: 0 0 10px 0;
 	display: flex;
@@ -44,11 +45,13 @@
 .form__input {
 	width: 60%;
 	min-height: 40px;
+	border-radius: 3px;
 
 }
 
 .form__submit {
 	margin: 0 0 0 40px;
+	border-radius: 3px;
 }
 
 .card__button {
